@@ -21,7 +21,7 @@ const contactSlice = createSlice({
       })
       .addCase(addContacts.fulfilled, (state, action) => {
         state.list.push(action.payload); //first way
-        // state.list = [...state.list, action.payload];  //second way
+        // state.list = [...state.list, action.payload]; //second way
       })
       .addCase(delContacts.fulfilled, (state, action) => {
         const idx = state.list.findIndex(
