@@ -26,7 +26,10 @@ img {
     max-width: 100%;
     object-fit: cover;
 }
-h1,h2,h3,h4,h5,h6,p{
+h1,h2,h3,h4,h5,h6,p {
     margin: 0;
+}
+a {
+  text-decoration:none;
 }
 `;

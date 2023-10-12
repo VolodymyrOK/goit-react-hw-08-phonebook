@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { logIn, logOut, refreshUser, register } from './auth.operations';
 
 const initStateAuth = {
@@ -13,37 +13,26 @@ const authSlice = createSlice({
   initialState: initStateAuth,
   extraReducers: builder => {
     builder
-      .addCase(register.pending, (state, action) => state)
-      .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
-      .addCase(register.rejected, (state, action) => state)
-
-      .addCase(logIn.pending, (state, action) => state)
-      .addCase(logIn.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      })
-      .addCase(logIn.rejected, (state, action) => state)
-
-      .addCase(logOut.pending, (state, action) => state)
       .addCase(logOut.fulfilled, state => {
         state.user = initStateAuth.user;
         state.token = null;
         state.isLoggedIn = false;
       })
-      .addCase(logOut.rejected, (state, action) => state)
-
-      .addCase(refreshUser.pending, (state, action) => state)
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
       })
-      .addCase(refreshUser.rejected, (state, action) => state);
+      .addMatcher(isAnyOf(...getActions('fulfilled')), handleFulfilled);
   },
 });
+
+const extraActions = [logIn, register];
+const getActions = type => extraActions.map(action => action[type]);
+
+const handleFulfilled = (state, action) => {
+  state.user = action.payload.user;
+  state.token = action.payload.token;
+  state.isLoggedIn = true;
+};
 
 export const authReducer = authSlice.reducer;

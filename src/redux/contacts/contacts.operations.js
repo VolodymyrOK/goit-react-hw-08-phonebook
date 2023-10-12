@@ -4,9 +4,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
-    // const url = new URL(`${axios.defaults.baseURL}/contacts`);
-    // url.searchParams.append('sortBy', 'name');
-    // url.searchParams.append('order', 'asc');
     try {
       const response = await axios.get('/contacts');
       return response.data;
@@ -34,6 +31,18 @@ export const delContacts = createAsyncThunk(
     try {
       await axios.delete(`/contacts/${id}`);
       return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateContacts = createAsyncThunk(
+  'contacts/updateContacts',
+  async (id, value, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/contacts/${id}`, value);
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

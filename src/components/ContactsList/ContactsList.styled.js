@@ -61,6 +61,8 @@ export const DelButton = styled.button`
   }
 `;
 
+export const UpdateButton = DelButton;
+
 export const MessageAboutEmpty = styled.div`
   font-weight: 500;
   text-align: center;

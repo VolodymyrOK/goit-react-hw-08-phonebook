@@ -7,6 +7,7 @@ import {
   HeadContacts,
   MessageAboutEmpty,
   Title,
+  UpdateButton,
 } from './ContactsList.styled';
 import { delContacts } from 'redux/contacts/contacts.operations';
 import {
@@ -40,6 +41,17 @@ export const ContactsList = () => {
             <ContactListItem key={id}>
               <span>{name}:</span>
               <span>{number}</span>
+              <span>
+                <UpdateButton
+                  type="button"
+                  onClick={() => {
+                    if (window.confirm('Are you sure?'))
+                      dispatch(delContacts(id));
+                  }}
+                >
+                  Edit
+                </UpdateButton>
+              </span>
               <span>
                 <DelButton
                   type="button"

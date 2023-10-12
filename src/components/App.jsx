@@ -7,11 +7,11 @@ import { LayoutApp } from './LayoutApp/LayoutApp';
 import { RestrictedRoute } from './Routes/RestrictedRoute';
 import { PrivateRoute } from './Routes/PrivateRoute';
 
-const HomePage = lazy(() => import('pages/HomePage'));
-const LoginPage = lazy(() => import('pages/Login'));
-const RegisterPage = lazy(() => import('pages/Register'));
-const ContactsPage = lazy(() => import('pages/Contacts'));
-const NotFoundPage = lazy(() => import('pages/NotFound'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const LoginPage = lazy(() => import('pages/Login/Login'));
+const RegisterPage = lazy(() => import('pages/Register/Register'));
+const ContactsPage = lazy(() => import('pages/Contacts/Contacts'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
