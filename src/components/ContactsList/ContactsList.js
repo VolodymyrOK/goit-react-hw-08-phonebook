@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Filter } from 'components/Filter/Filter';
 import {
+  ContactContainer,
   ContactList,
   ContactListItem,
   DelButton,
@@ -9,7 +10,10 @@ import {
   Title,
   UpdateButton,
 } from './ContactsList.styled';
-import { delContacts } from 'redux/contacts/contacts.operations';
+import {
+  delContacts,
+  updateContacts,
+} from 'redux/contacts/contacts.operations';
 import {
   selectContacts,
   selectFilteredContacts,
@@ -21,7 +25,7 @@ export const ContactsList = () => {
   const contacts = useSelector(selectFilteredContacts);
 
   return (
-    <>
+    <ContactContainer>
       <HeadContacts>
         <Title>
           Contacts
@@ -45,8 +49,7 @@ export const ContactsList = () => {
                 <UpdateButton
                   type="button"
                   onClick={() => {
-                    if (window.confirm('Are you sure?'))
-                      dispatch(delContacts(id));
+                    dispatch(updateContacts(id));
                   }}
                 >
                   Edit
@@ -67,6 +70,6 @@ export const ContactsList = () => {
           ))
         )}
       </ContactList>
-    </>
+    </ContactContainer>
   );
 };

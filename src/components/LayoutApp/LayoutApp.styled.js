@@ -54,3 +54,8 @@ export const Footer = styled.footer`
   -webkit-box-shadow: 3px 3px 19px 0px rgba(17, 17, 17, 0.75);
   -moz-box-shadow: 3px 3px 19px 0px rgba(17, 17, 17, 0.75);
 `;
+
+export const Copyright = styled.div`
+  margin: 0 auto;
+  color: white;
+`;

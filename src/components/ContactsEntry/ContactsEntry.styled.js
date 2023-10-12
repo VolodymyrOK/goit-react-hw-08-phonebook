@@ -13,6 +13,7 @@ export const Label = styled.label`
 
 export const StyledField = styled(Field)`
   padding: 4px;
+  width: 20em;
 `;
 
 export const Button = styled.button`
@@ -41,10 +42,4 @@ export const Button = styled.button`
 export const ErrorMsg = styled(ErrorMessage)`
   font-size: 14px;
   color: ${({ theme: { colors } }) => colors.colorErr};
-`;
-
-export const Title = styled.h1`
-  text-align: center;
-  font-size: 28px;
-  color: ${({ theme: { colors } }) => colors.colorH1};
 `;

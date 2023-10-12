@@ -7,7 +7,6 @@ import {
   StyledField,
   Button,
   ErrorMsg,
-  Title,
 } from './ContactsEntry.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts.selectors';
@@ -42,8 +41,7 @@ export const ContactsEntry = () => {
   };
 
   return (
-    <>
-      <Title>Phonebook</Title>
+    <>      
       <Formik
         initialValues={{
           name: '',

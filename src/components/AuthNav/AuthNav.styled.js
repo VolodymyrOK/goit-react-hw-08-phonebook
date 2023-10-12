@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const AuthMenuNav = styled(NavLink)`
+export const AuthMenuWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;

@@ -1,7 +1,13 @@
+import { Helmet } from 'react-helmet';
+import { TitleH1 } from './HomePage.styled';
+
 export default function HomePage() {
   return (
     <>
-      <p>Phonebook welcome page</p>
+      <Helmet>
+        <title>Home page</title>
+      </Helmet>
+      <TitleH1>Phonebook welcome page</TitleH1>
     </>
   );
 }

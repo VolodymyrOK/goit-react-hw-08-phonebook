@@ -2,7 +2,7 @@ import { AppBar } from 'components/AppBar/AppBar';
 import { Outlet } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import { Suspense } from 'react';
-import { Container, Footer, Header } from './LayoutApp.styled';
+import { Container, Copyright, Footer, Header } from './LayoutApp.styled';
 
 export const LayoutApp = () => {
   return (
@@ -15,7 +15,9 @@ export const LayoutApp = () => {
           <Outlet />
         </Suspense>
       </main>
-      <Footer>&copy; Phone Book, 2023</Footer>
+      <Footer>
+        <Copyright>&copy; Phone Book, 2023</Copyright>
+      </Footer>
     </Container>
   );
 };
