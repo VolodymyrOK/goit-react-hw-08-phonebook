@@ -30,14 +30,13 @@ export const ContactsList = () => {
         </Title>
         <Filter />
       </HeadContacts>
+      {contacts.length === 0 && (
+        <MessageAboutEmpty>Phonebook is empty</MessageAboutEmpty>
+      )}
       <ContactList>
-        {contacts.length === 0 ? (
-          <MessageAboutEmpty>No entries to display</MessageAboutEmpty>
-        ) : (
-          contacts.map(({ id, name, number }) => (
-            <ContactItem id={id} name={name} number={number} />
-          ))
-        )}
+        {contacts.map(({ id, name, number }) => (
+          <ContactItem id={id} name={name} number={number} />
+        ))}
       </ContactList>
     </ContactContainer>
   );

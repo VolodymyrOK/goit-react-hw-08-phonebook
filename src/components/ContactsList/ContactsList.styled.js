@@ -24,7 +24,9 @@ export const HeadContacts = styled.div`
 export const ContactList = styled.ul``;
 
 export const MessageAboutEmpty = styled.div`
+  margin-top: 24px;
   font-weight: 500;
+  font-size: 24px;
   text-align: center;
   color: ${({ theme: { colors } }) => colors.colorErr};
 `;
