@@ -2,7 +2,14 @@ import { AppBar } from 'components/AppBar/AppBar';
 import { Outlet } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import { Suspense } from 'react';
-import { Container, Copyright, Footer, Header } from './LayoutApp.styled';
+import {
+  Container,
+  CopyrightLink,
+  CopyrightWrapper,
+  Footer,
+  Header,
+} from './LayoutApp.styled';
+import { HomePage } from 'components/App';
 
 export const LayoutApp = () => {
   return (
@@ -16,7 +23,12 @@ export const LayoutApp = () => {
         </Suspense>
       </main>
       <Footer>
-        <Copyright>&copy; Phone Book, 2023</Copyright>
+        <CopyrightWrapper>
+          &copy;&nbsp;
+          <CopyrightLink component={HomePage} to="/">
+            Phone Book, {new Date().getFullYear()}
+          </CopyrightLink>
+        </CopyrightWrapper>
       </Footer>
     </Container>
   );

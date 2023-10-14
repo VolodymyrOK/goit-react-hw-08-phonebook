@@ -9,6 +9,12 @@ import { Theme } from 'styles/Theme';
 import { persistor, store } from 'redux/store';
 import { GlobalStyle } from 'styles/GlobalStyles';
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { Toaster } from 'react-hot-toast';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
@@ -20,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </ThemeProvider>
       </PersistGate>
     </Provider>
+    <Toaster />
     <GlobalStyle />
   </React.StrictMode>
 );

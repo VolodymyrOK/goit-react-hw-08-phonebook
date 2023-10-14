@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts.selectors';
 import { addContacts } from 'redux/contacts/contacts.operations';
 
-const SignupSchema = Yup.object().shape({
+export const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, 'Too Short!')
     .max(50, 'Too Long!')

@@ -3,7 +3,7 @@ import {
   fetchContacts,
   addContacts,
   delContacts,
-  updateContacts,
+  changeContact,
 } from 'redux/contacts/contacts.operations';
 
 const initState = {
@@ -29,8 +29,12 @@ const contactSlice = createSlice({
         );
         state.list.splice(idx, 1);
       })
-      .addCase(updateContacts.fulfilled, (state, action) => {
+      .addCase(changeContact.fulfilled, (state, action) => {
         console.log(action.payload);
+        const idx = state.list.findIndex(
+          contact => contact.id === action.payload.id
+        );
+        state.list.splice(idx, 1, action.payload);
       })
 
       .addMatcher(isPendingAction, state => handlePending(state))

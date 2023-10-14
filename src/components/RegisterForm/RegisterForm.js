@@ -1,73 +1,118 @@
 import { useDispatch } from 'react-redux';
+import { Link as RouterLink } from 'react-router-dom';
 import { register } from 'redux/auth/auth.operations';
 import {
+  Container,
+  Avatar,
+  Box,
+  CssBaseline,
+  Grid,
+  Link,
+  TextField,
+  Typography,
   Button,
-  ErrorMsg,
-  FormWrapper,
-  Label,
-  StyledField,
-  StyledForm,
-} from './RegisterForm.styled';
-import { Formik } from 'formik';
+} from '@mui/material';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
+// import * as Yup from 'yup';
+// const SignupSchema = Yup.object().shape({
+//   email: Yup.string().email('Invalid email.').required('Required'),
+//   password: Yup.string().min(8).required('Required'),
+//   name: Yup.string().min(2).max(50).required('Required'),
+// });
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = ({ username, email, password }, reset) => {
+  const handleSubmit = event => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
     dispatch(
       register({
-        name: username,
-        email: email,
-        password: password,
+        name: data.get('username'),
+        email: data.get('email'),
+        password: data.get('password'),
       })
     );
-    reset.resetForm();
   };
 
   return (
-    <FormWrapper>
-      <Formik
-        initialValues={{
-          username: '',
-          email: '',
-          password: '',
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 3,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
-        onSubmit={handleSubmit}
       >
-        <StyledForm>
-          <Label htmlFor="username">Username</Label>
-          <StyledField
-            id="username"
-            type="text"
-            name="username"
-            title="Username"
-            placeholder="Username"
-            required
-          />
-          <ErrorMsg name="username" component="span"></ErrorMsg>
-          <Label htmlFor="email">Email</Label>
-          <StyledField
-            id="email"
-            type="text"
-            name="email"
-            title="Email"
-            placeholder="E-mail"
-            required
-          />
-          <ErrorMsg name="email" component="span"></ErrorMsg>
-          <Label htmlFor="password">Password</Label>
-          <StyledField
-            id="password"
-            type="password"
-            name="password"
-            title="Password"
-            placeholder="Password"
-            required
-          />
-          <ErrorMsg name="password" component="span"></ErrorMsg>
-          <Button type="submit">Register</Button>
-        </StyledForm>
-      </Formik>
-    </FormWrapper>
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign up
+        </Typography>
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="username"
+                name="username"
+                required
+                fullWidth
+                id="username"
+                label="Username"
+                placeholder="Username"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                placeholder="Email Address"
+                name="email"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                placeholder="Password"
+                type="password"
+                id="password"
+                autoComplete="new-password"
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Sign Up
+          </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link
+                component={RouterLink}
+                to="/login"
+                variant="body2"
+                sx={{ color: 'white' }}
+              >
+                Already have an account? Sign in
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </Container>
   );
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import background from 'images/funart.jpg';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 100%;
@@ -55,7 +56,10 @@ export const Footer = styled.footer`
   -moz-box-shadow: 3px 3px 19px 0px rgba(17, 17, 17, 0.75);
 `;
 
-export const Copyright = styled.div`
-  margin: 0 auto;
+export const CopyrightWrapper = styled.div`
   color: white;
+`;
+export const CopyrightLink = styled(Link)`
+  color: white;
+  text-align: center;
 `;

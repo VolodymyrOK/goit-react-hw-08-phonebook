@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { MessageToast } from 'components/Messages/Messages';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
@@ -8,6 +9,7 @@ export const fetchContacts = createAsyncThunk(
       const response = await axios.get('/contacts');
       return response.data;
     } catch (error) {
+      MessageToast('error', 'Something went wrong');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -16,11 +18,12 @@ export const fetchContacts = createAsyncThunk(
 export const addContacts = createAsyncThunk(
   'contacts/addContacts',
   async (value, thunkAPI) => {
-    console.log(value);
     try {
       const response = await axios.post('/contacts', value);
+      MessageToast('ok', 'Contact added');
       return response.data;
     } catch (error) {
+      MessageToast('error', 'Failed to add contact');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -31,21 +34,25 @@ export const delContacts = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       await axios.delete(`/contacts/${id}`);
+      MessageToast('ok', 'Contact deleted');
       return id;
     } catch (error) {
+      MessageToast('error', 'Failed to delete contact');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const updateContacts = createAsyncThunk(
-  'contacts/updateContacts',
-  async (id, thunkAPI) => {
+export const changeContact = createAsyncThunk(
+  'contacts/changeContact',
+  async ({ changeValues, id }, thunkAPI) => {
+
     try {
-      const response = await axios.patch(`/contacts/${id}`);
-      console.log(response);
+      const response = await axios.patch(`/contacts/${id}`, changeValues);
+      MessageToast('ok', 'Data change successfully');
       return response.data;
     } catch (error) {
+      MessageToast('error', 'Failed to change contact');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
