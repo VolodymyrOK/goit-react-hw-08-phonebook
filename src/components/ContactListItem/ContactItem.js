@@ -15,7 +15,7 @@ export const ContactItem = ({ id, name, number }) => {
   const toggleModal = () => setIsOpen(prev => !prev);
 
   return (
-    <ContactItemLi key={id}>
+    <ContactItemLi>
       <span>{name}:</span>
       <span>{number}</span>
       <span>

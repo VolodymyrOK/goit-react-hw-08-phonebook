@@ -1,4 +1,5 @@
-import { Helmet } from 'react-helmet';
+
+import { Helmet } from 'react-helmet-async';
 import { TitleH1 } from './HomePage.styled';
 
 export default function HomePage() {

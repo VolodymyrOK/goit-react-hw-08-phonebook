@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useDispatch } from 'react-redux';
 import { ContactsEntry } from 'components/ContactsEntry/ContactsEntry';
 import { ContactsList } from 'components/ContactsList/ContactsList';
-import { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
-import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/contacts.operations';
 import { ContactsInfo, TitleH1 } from './Contacts.styled';
 

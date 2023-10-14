@@ -35,7 +35,7 @@ export const ContactsList = () => {
       )}
       <ContactList>
         {contacts.map(({ id, name, number }) => (
-          <ContactItem id={id} name={name} number={number} />
+          <ContactItem key={id} id={id} name={name} number={number} />
         ))}
       </ContactList>
     </ContactContainer>

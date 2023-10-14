@@ -14,19 +14,22 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Toaster } from 'react-hot-toast';
+import { HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider theme={Theme}>
-          <BrowserRouter basename="/goit-react-hw-08-phonebook">
-            <App />
-          </BrowserRouter>
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
-    <Toaster />
-    <GlobalStyle />
+    <HelmetProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider theme={Theme}>
+            <BrowserRouter basename="/goit-react-hw-08-phonebook">
+              <App />
+            </BrowserRouter>
+          </ThemeProvider>
+        </PersistGate>
+      </Provider>
+      <Toaster />
+      <GlobalStyle />
+    </HelmetProvider>
   </React.StrictMode>
 );
