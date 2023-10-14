@@ -14,12 +14,6 @@ import {
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-// import * as Yup from 'yup';
-// const SignupSchema = Yup.object().shape({
-//   email: Yup.string().email('Invalid email.').required('Required'),
-//   password: Yup.string().min(8).required('Required'),
-//   name: Yup.string().min(2).max(50).required('Required'),
-// });
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();

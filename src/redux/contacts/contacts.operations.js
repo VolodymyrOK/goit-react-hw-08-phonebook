@@ -46,7 +46,6 @@ export const delContacts = createAsyncThunk(
 export const changeContact = createAsyncThunk(
   'contacts/changeContact',
   async ({ changeValues, id }, thunkAPI) => {
-
     try {
       const response = await axios.patch(`/contacts/${id}`, changeValues);
       MessageToast('ok', 'Data change successfully');

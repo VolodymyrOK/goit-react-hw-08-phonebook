@@ -13,23 +13,25 @@ import { HomePage } from 'components/App';
 
 export const LayoutApp = () => {
   return (
-    <Container>
+    <>
       <Header>
         <AppBar />
       </Header>
-      <main>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-      </main>
-      <Footer>
-        <CopyrightWrapper>
-          &copy;&nbsp;
-          <CopyrightLink component={HomePage} to="/">
-            Phone Book, {new Date().getFullYear()}
-          </CopyrightLink>
-        </CopyrightWrapper>
-      </Footer>
-    </Container>
+      <Container>
+        <main>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </main>
+        <Footer>
+          <CopyrightWrapper>
+            &copy;&nbsp;
+            <CopyrightLink component={HomePage} to="/">
+              Phone Book, {new Date().getFullYear()}
+            </CopyrightLink>
+          </CopyrightWrapper>
+        </Footer>
+      </Container>
+    </>
   );
 };

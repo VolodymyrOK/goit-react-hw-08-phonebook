@@ -30,7 +30,6 @@ const contactSlice = createSlice({
         state.list.splice(idx, 1);
       })
       .addCase(changeContact.fulfilled, (state, action) => {
-        console.log(action.payload);
         const idx = state.list.findIndex(
           contact => contact.id === action.payload.id
         );

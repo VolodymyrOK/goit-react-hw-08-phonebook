@@ -9,7 +9,7 @@ export const Theme = {
     colorH1: 'teal',
     colorH2: 'DarkSlateBlue',
     colorName: 'black',
-    colorPhone: 'green',
+    colorPhone: 'white',
     bgcDelBtnHover: 'tomato',
   },
 };

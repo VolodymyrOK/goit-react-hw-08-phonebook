@@ -20,6 +20,9 @@ export const UserButton = styled.button`
     background-color: white;
     color: RoyalBlue;
   }
+  @media screen and (max-width: 468px) {
+    padding: 2px;
+  }
 `;
 
 export const Greeting = styled.p`

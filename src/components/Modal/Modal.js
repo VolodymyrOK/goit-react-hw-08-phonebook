@@ -14,15 +14,25 @@ import {
 } from '@chakra-ui/react';
 import { SignupSchema } from 'components/ContactsEntry/ContactsEntry';
 import { Field, Form, Formik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeContact } from 'redux/contacts/contacts.operations';
 import { ModalBlockBtn } from './Modal.styled';
 import { ErrorMsg } from 'components/ContactsEntry/ContactsEntry.styled';
+import { selectContacts } from 'redux/contacts/contacts.selectors';
 
 export const BasicModal = ({ isOpen, name, number, onClose, id }) => {
+  console.log(id);
   const dispatch = useDispatch();
+  const list = useSelector(selectContacts);
 
   const handleUpdate = (changeValues, reset) => {
+    const isDuplicated = list.find(
+      item =>
+        item.name.toLowerCase() === changeValues.name.toLowerCase() &&
+        item.id !== id
+    );
+    if (isDuplicated)
+      return alert(changeValues.name + ' is already in contacts');
     dispatch(changeContact({ changeValues, id }));
     onClose();
     reset.resetForm();

@@ -16,22 +16,23 @@ export const ContactItemLi = styled.li`
       text-align: left;
     }
     &:nth-child(2) {
-      font-weight: 700;
+      font-weight: 500;
+      margin-right: 12px;
       color: ${({ theme: { colors } }) => colors.colorPhone};
       text-align: center;
     }
     &:nth-child(3) {
-      width: 60px;
       text-align: right;
     }
   }
 `;
 
 export const DelButton = styled.button`
-  display: inline-block;
+  display: flex;
   font-size: 14px;
   border: 1px solid teal;
   border-radius: 4px;
+  padding: 4px 8px;
   cursor: pointer;
   transition: color 150ms ease-in, background-color 150ms ease-in,
     scale 150ms ease-in;

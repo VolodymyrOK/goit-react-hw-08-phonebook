@@ -4,11 +4,14 @@ import styled from 'styled-components';
 export const AuthMenuWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+  @media screen and (max-width: 468px) {
+    gap: 36px;
+  }
 `;
 
 export const AuthMenuLink = styled(NavLink)`
-  width: 92px;
+  /* width: 92px; */
   text-align: center;
   padding: 8px;
   cursor: pointer;
@@ -28,5 +31,8 @@ export const AuthMenuLink = styled(NavLink)`
       rgba(0, 0, 255, 0.58) 100%
     );
     scale: 0.98;
+  }
+  @media screen and (max-width: 468px) {
+    padding: 4px 16px;
   }
 `;

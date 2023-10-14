@@ -5,6 +5,9 @@ export const Nav = styled.nav`
   padding: 8px;
   display: flex;
   gap: 4px;
+  @media screen and (max-width: 468px) {
+    padding: 4px;
+  }
 `;
 
 export const NavigationLink = styled(NavLink)`
@@ -29,5 +32,8 @@ export const NavigationLink = styled(NavLink)`
       rgba(0, 0, 255, 0.58) 100%
     );
     scale: 0.98;
+  }
+  @media screen and (max-width: 468px) {
+    padding: 2px;
   }
 `;

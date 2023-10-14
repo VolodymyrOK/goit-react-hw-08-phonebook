@@ -5,6 +5,10 @@ export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    margin-top: 24px;
+  }
 `;
 
 export const Label = styled.label`
