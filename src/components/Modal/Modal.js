@@ -21,7 +21,6 @@ import { ErrorMsg } from 'components/ContactsEntry/ContactsEntry.styled';
 import { selectContacts } from 'redux/contacts/contacts.selectors';
 
 export const BasicModal = ({ isOpen, name, number, onClose, id }) => {
-  console.log(id);
   const dispatch = useDispatch();
   const list = useSelector(selectContacts);
 
