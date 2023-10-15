@@ -11,7 +11,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavigationLink = styled(NavLink)`
-  width: 92px;
+  width: 100px;
   text-align: center;
   padding: 8px;
   cursor: pointer;
