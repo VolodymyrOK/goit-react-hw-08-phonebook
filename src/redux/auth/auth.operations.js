@@ -59,7 +59,6 @@ export const refreshUser = createAsyncThunk(
     setAuthHeader(token);
     try {
       const response = await axios.get('/users/current');
-      MessageToast('ok', 'The refresh was successful');
       return response.data;
     } catch (error) {
       MessageToast('error', 'Something went wrong. Invalid token');

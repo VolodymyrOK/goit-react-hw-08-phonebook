@@ -8,6 +8,7 @@ import {
   CopyrightWrapper,
   Footer,
   Header,
+  Main,
 } from './LayoutApp.styled';
 import { HomePage } from 'components/App';
 
@@ -17,21 +18,21 @@ export const LayoutApp = () => {
       <Header>
         <AppBar />
       </Header>
-      <Container>
-        <main>
+      <Main>
+        <Container>
           <Suspense fallback={<Loader />}>
             <Outlet />
-          </Suspense>
-        </main>
-        <Footer>
-          <CopyrightWrapper>
-            &copy;&nbsp;
-            <CopyrightLink component={HomePage} to="/">
-              Phone Book, {new Date().getFullYear()}
-            </CopyrightLink>
-          </CopyrightWrapper>
-        </Footer>
-      </Container>
+          </Suspense>{' '}
+        </Container>
+      </Main>
+      <Footer>
+        <CopyrightWrapper>
+          &copy;&nbsp;
+          <CopyrightLink component={HomePage} to="/">
+            Phone Book, {new Date().getFullYear()}
+          </CopyrightLink>
+        </CopyrightWrapper>
+      </Footer>
     </>
   );
 };

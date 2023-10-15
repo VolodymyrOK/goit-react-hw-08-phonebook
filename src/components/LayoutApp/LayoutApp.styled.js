@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import background from 'images/funart.jpg';
 import { Link } from 'react-router-dom';
 
+export const Main = styled.main`
+  flex-grow: 1;
+`;
+
 export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -45,25 +49,25 @@ export const Header = styled.header`
 `;
 
 export const Footer = styled.footer`
-  /* position: fixed;
-  left: 0;
-  bottom: 0; */
   width: 100%;
   height: 12px;
   display: flex;
   padding: 24px;
   background-color: transparent;
   border-radius: 8px;
-  text-align: center;
-  margin-top: 100px;
-  /* box-shadow: 3px 3px 19px 0px rgba(17, 17, 17, 0.75);
+  background-color: RoyalBlue;
+  border-radius: 8px;
+  box-shadow: 3px 3px 19px 0px rgba(17, 17, 17, 0.75);
   -webkit-box-shadow: 3px 3px 19px 0px rgba(17, 17, 17, 0.75);
-  -moz-box-shadow: 3px 3px 19px 0px rgba(17, 17, 17, 0.75); */
+  -moz-box-shadow: 3px 3px 19px 0px rgba(17, 17, 17, 0.75);
 `;
 
 export const CopyrightWrapper = styled.div`
+  display: flex;
   color: white;
-  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 export const CopyrightLink = styled(Link)`
   color: white;
