@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux';
+import { delContacts } from 'redux/contacts/contacts.operations';
+import { useState } from 'react';
+import { BasicModal } from 'components/Modal/Modal';
 import {
   ContactItemLi,
   DelButton,
   DelButtonSpan,
   UpdateButton,
 } from './ContactItem.styled';
-import { delContacts } from 'redux/contacts/contacts.operations';
-import { useState } from 'react';
-import { BasicModal } from 'components/Modal/Modal';
 
 export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
