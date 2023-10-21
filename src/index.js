@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ThemeProvider theme={Theme}>
-            <BrowserRouter basename="phonebook-kv.netlify.app">
+            <BrowserRouter>
               <App />
             </BrowserRouter>
           </ThemeProvider>
